@@ -367,15 +367,15 @@ var adPick = addArray[Math.floor(Math.random() * addArray.length)];
         const embed = new Discord.MessageEmbed()
         .setColor(db.get(`user_${message.author.id}.color`))
         .setTitle('🎃ULTIMATE REMINDER🎃')
-        .setDescription(`**HOW TO USE:**\nmake sure UltimateRPG and Ultimate Reminder have the same prefix!!!\n**[Join Support Server!](https://discord.gg/PTeUgRbFGR)**\n**[Checkout Our Patreon!](https://www.patreon.com/UltimateReminder)**\n${URPGSUPPORTER}`)
-        .addField("🎃Get Started:", "`rmStart`")
-        .addField('🎃Commands',"`"+PREFIX+"reminder *on/off*`\n `"+PREFIX+"prefix *newPrefix*`\n `"+PREFIX+"premium *on/off*`\n `"+PREFIX+"status`\n`"+PREFIX+"dms *on/off*`\n`"+PREFIX+"suggest`\n`"+PREFIX+"enable/disable *reminder*`")
+        .setDescription(`**HOW TO USE:**\n>>> make sure UltimateRPG and Ultimate Reminder have the same prefix!!!\n**[Join Support Server!](https://discord.gg/PTeUgRbFGR)**\n**[Checkout Our Patreon!](https://www.patreon.com/UltimateReminder)**\n${URPGSUPPORTER}`)
+        .addField("🎃Get Started:", ">>> `rmStart`")
+        .addField('🎃Commands',">>> `"+PREFIX+"reminder *on/off*`\n `"+PREFIX+"prefix *newPrefix*`\n `"+PREFIX+"premium *on/off*`\n `"+PREFIX+"status`\n`"+PREFIX+"dms *on/off*`\n`"+PREFIX+"suggest`\n`"+PREFIX+"enable/disable *reminder*`")
         .addField("🎃Forgot your prefix?", "```\ntype rmReset```")
         .setFooter('Copyright © 2021')
         if(PREMIUM == 1){
-            embed.addField('🎃Premium Commands', "`"+PREFIX+"color`\n `"+PREFIX+"ready`\n `"+PREFIX+"reminders`")
+            embed.addField('🎃Premium Commands', ">>> `"+PREFIX+"color`\n `"+PREFIX+"ready`\n `"+PREFIX+"reminders`")
         }
-        embed.addField("🎃Misc", "These are other commands unrelated to UltimateRPG! they use the prefix `rm`\n\n `ping`, `user`, `bot`, `vote`, `shop`, `invite`", true)
+        embed.addField("🎃Misc", ">>> These are other commands unrelated to UltimateRPG! they use the prefix `rm`\n\n `ping`, `user`, `bot`, `vote`, `shop`, `invite`", true)
        
 
         return message.channel.send(embed);
