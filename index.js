@@ -244,12 +244,16 @@ const hasSilver = member ? member.roles.cache.get('810838438173343745') : false
 const hasBronze = member ? member.roles.cache.get('260996384134529025') : false
 if(hasGold){
     var premTxt = "Supporter Tier: **Gold**<:badge_ultra_supporter:868592417966796920>";
+    db.set(`user_${message.author.id}.premium`, 1)
 } else if(hasSilver){
     var premTxt = "Supporter Tier: **Silver**<:badge_silver_supporter:868674848296140830>";
+    db.set(`user_${message.author.id}.premium`, 1)
 } else if(hasBronze){
     var premTxt = "Supporter Tier: **Bronze**<:premium_badge:827585712835788860>";
+    db.set(`user_${message.author.id}.premium`, 1)
 } else {
     var premTxt = "Supporter Tier: None";
+    db.set(`user_${message.author.id}.premium`, 0)
 }
 
 
