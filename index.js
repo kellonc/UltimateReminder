@@ -362,7 +362,7 @@ var adPick = addArray[Math.floor(Math.random() * addArray.length)];
         .addField("🎃Forgot your prefix?", "```\ntype rmReset```")
         .setFooter('Copyright © 2021')
         if(PREMIUM == 1){
-            embed.addField('🎃Premium Commands', ">>> `"+PREFIX+"color`\n `"+PREFIX+"ready`\n `"+PREFIX+"reminders`")
+            embed.addField('<:Badge_premium_supporter:894392825943302164>Premium Commands', ">>> `"+PREFIX+"color`\n `"+PREFIX+"ready`\n `"+PREFIX+"reminders`")
         }
         embed.addField("🎃Misc", ">>> These are other commands unrelated to UltimateRPG! they use the prefix `rm`\n\n `ping`, `user`, `bot`, `vote`, `shop`, `invite`", true)
        
