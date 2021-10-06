@@ -238,7 +238,7 @@ bot.on('message', async (message) => {
 const supportGuild = bot.guilds.cache.get('779043676214263808')
 const member = supportGuild.members.cache.get(message.author.id)
 
-//i hate you
+if(member){
 const role1 = member ? member.roles.cache.get('810838470200131605') : false
 const role2 = member ? member.roles.cache.get('810838438173343745') : false
 const role3 = member ? member.roles.cache.get('678114167902830610') : false
@@ -252,10 +252,8 @@ const role3 = member ? member.roles.cache.get('678114167902830610') : false
    } else
    if (role3 == member.roles.cache.get('678114167902830610')) {
     db.set(`user_${message.author.id}.premium`, 1)
-   } else {
-       db.set(`user_${message.author.id}.premium`, 0)
    }
-
+}
 
 
 //SERVER WHITELIST  
