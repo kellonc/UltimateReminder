@@ -243,16 +243,23 @@ const role1 = member ? member.roles.cache.get('810838470200131605') : false
 const role2 = member ? member.roles.cache.get('810838438173343745') : false
 const role3 = member ? member.roles.cache.get('678114167902830610') : false
 
+var URPGSUPPORTER;
 
    if (role1 == member.roles.cache.get('810838470200131605')) {
     db.set(`user_${message.author.id}.premium`, 1)
+    var URPGSUPPORTER = "Supporter Tier: **Gold Supporter**<:badge_ultra_supporter:868592417966796920>";
    }else
    if (role2 == member.roles.cache.get('810838438173343745')) {
     db.set(`user_${message.author.id}.premium`, 1)
+    var URPGSUPPORTER = "Supporter Tier: **Silver Supporter**<:badge_silver_supporter:868674848296140830>";
    } else
    if (role3 == member.roles.cache.get('678114167902830610')) {
     db.set(`user_${message.author.id}.premium`, 1)
+    var URPGSUPPORTER = "Supporter Tier: **Bronze Supporter**<:premium_badge:827585712835788860>";
    }
+   
+} else {
+    var URPGSUPPORTER = "Supporter Tier: None";
 }
 
 
@@ -351,7 +358,7 @@ var adPick = addArray[Math.floor(Math.random() * addArray.length)];
         const embed = new Discord.MessageEmbed()
         .setColor(db.get(`user_${message.author.id}.color`))
         .setTitle('🎃ULTIMATE REMINDER🎃')
-        .setDescription(`**HOW TO USE:**\n>>> make sure UltimateRPG and Ultimate Reminder have the same prefix!!!\n**[Join Support Server!](https://discord.gg/PTeUgRbFGR)**\n**[Checkout Our Patreon!](https://www.patreon.com/UltimateReminder)**`)
+        .setDescription(`**HOW TO USE:**\n>>> make sure UltimateRPG and Ultimate Reminder have the same prefix!!!\n**[Join Support Server!](https://discord.gg/PTeUgRbFGR)**\n**[Checkout Our Patreon!](https://www.patreon.com/UltimateReminder)**\n${URPGSUPPORTER}`)
         .addField("🎃Get Started:", ">>> `rmStart`")
         .addField('🎃Commands',">>> `"+PREFIX+"reminder *on/off*`\n `"+PREFIX+"prefix *newPrefix*`\n `"+PREFIX+"premium *on/off*`\n `"+PREFIX+"status`\n`"+PREFIX+"dms *on/off*`\n`"+PREFIX+"suggest`\n`"+PREFIX+"enable/disable *reminder*`")
         .addField("🎃Forgot your prefix?", "```\ntype rmReset```")
