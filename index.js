@@ -4262,13 +4262,13 @@ if(reminderName.toLowerCase() == "mission"){
 }
 
 if(reminderName.toLowerCase() == "adventure"){
-    db.set(`user_${message.author.id}.allow7`, 1)
+    db.set(`user_${message.author.id}.allow8`, 1)
 
     return message.channel.send("Reminder `Adventure` has been Enabled.");
 }
 
 if(reminderName.toLowerCase() == "duel"){
-    db.set(`user_${message.author.id}.allow8`, 1)
+    db.set(`user_${message.author.id}.allow7`, 1)
 
     return message.channel.send("Reminder `Duel` has been Enabled.");
 }
@@ -4356,13 +4356,13 @@ if(reminderName.toLowerCase() == "mission"){
 }
 
 if(reminderName.toLowerCase() == "adventure"){
-    db.set(`user_${message.author.id}.allow7`, 0)
+    db.set(`user_${message.author.id}.allow8`, 0)
 
     return message.channel.send("Reminder `Adventure` has been Disabled.");
 }
 
 if(reminderName.toLowerCase() == "duel"){
-    db.set(`user_${message.author.id}.allow8`, 0)
+    db.set(`user_${message.author.id}.allow7`, 0)
 
     return message.channel.send("Reminder `Duel` has been Disabled.");
 }
