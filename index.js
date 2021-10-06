@@ -102,8 +102,28 @@ bot.on("ready", async () => {
 
   
     const mems = bot.guilds.cache.get("779043676214263808"); 
+    const mems2 = bot.guilds.cache.get("866488860888399882"); 
 
 mems.members.cache.forEach(member => {
+    if(!db.get(`user_${member.user.id}.fish`) == null){
+    db.set(`user_${member.user.id}.fish`, 0)
+    db.set(`user_${member.user.id}.harvest`, 0)
+    db.set(`user_${member.user.id}.chop`, 0)
+    db.set(`user_${member.user.id}.mine`, 0)
+    db.set(`user_${member.user.id}.hunt`, 0)
+    db.set(`user_${member.user.id}.mission`, 0)
+    db.set(`user_${member.user.id}.adventure`, 0)
+    db.set(`user_${member.user.id}.duel`, 0)
+    db.set(`user_${member.user.id}.training`, 0)
+    db.set(`user_${member.user.id}.trade`, 0)
+    db.set(`user_${member.user.id}.dungeon`, 0)
+    db.set(`user_${member.user.id}.travel`, 0)
+    db.set(`user_${member.user.id}.explore`, 0)
+    db.set(`user_${member.user.id}.daily`, 0)
+    }
+}); 
+
+mems2.members.cache.forEach(member => {
     if(!db.get(`user_${member.user.id}.fish`) == null){
     db.set(`user_${member.user.id}.fish`, 0)
     db.set(`user_${member.user.id}.harvest`, 0)
