@@ -234,8 +234,21 @@ bot.on('message', async (message) => {
        
    }
    
+
+
 //PATREON ROLE CHECKER
-//recoding this^
+const supportGuild = bot.guilds.cache.get('779043676214263808')
+const member = supportGuild.members.cache.get(message.author.id)
+const hasPremium = member ? member.roles.cache.get('788451904606568461') : false
+if(hasPremium){
+    var premTxt = "This user has premium.";
+} else {
+    var premTxt = "This user does not have premium.";
+}
+
+
+
+
 
 
 //SERVER WHITELIST  
@@ -333,7 +346,7 @@ var adPick = addArray[Math.floor(Math.random() * addArray.length)];
         const embed = new Discord.MessageEmbed()
         .setColor(db.get(`user_${message.author.id}.color`))
         .setTitle('🎃ULTIMATE REMINDER🎃')
-        .setDescription(`**HOW TO USE:**\n>>> make sure UltimateRPG and Ultimate Reminder have the same prefix!!!\n**[Join Support Server!](https://discord.gg/PTeUgRbFGR)**\n**[Checkout Our Patreon!](https://www.patreon.com/UltimateReminder)**`)
+        .setDescription(`**HOW TO USE:**\n>>> make sure UltimateRPG and Ultimate Reminder have the same prefix!!!\n**[Join Support Server!](https://discord.gg/PTeUgRbFGR)**\n**[Checkout Our Patreon!](https://www.patreon.com/UltimateReminder)**\n${premTxt}`)
         .addField("🎃Get Started:", ">>> `rmStart`")
         .addField('🎃Commands',">>> `"+PREFIX+"reminder *on/off*`\n `"+PREFIX+"prefix *newPrefix*`\n `"+PREFIX+"premium *on/off*`\n `"+PREFIX+"status`\n`"+PREFIX+"dms *on/off*`\n`"+PREFIX+"suggest`\n`"+PREFIX+"enable/disable *reminder*`")
         .addField("🎃Forgot your prefix?", "```\ntype rmReset```")
