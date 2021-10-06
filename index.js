@@ -256,13 +256,13 @@ var URPGSUPPORTER;
    if (role3 == member.roles.cache.get('678114167902830610')) {
     db.set(`user_${message.author.id}.premium`, 1)
     var URPGSUPPORTER = "Supporter Tier: **Bronze Supporter**<:premium_badge:827585712835788860>";
+   } else {
+       db.set(`user_${message.author.id}.premium`, 0)
+       var URPGSUPPORTER = "Supporter Tier: None";
    }
-   
+
 } 
 
-if(URPGSUPPORTER = "Supporter Tier: None"){
-    db.set(`user_${message.author.id}.premium`, 0)
-}
 
 
 //SERVER WHITELIST  
