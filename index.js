@@ -245,28 +245,20 @@ const role3 = member ? member.roles.cache.get('678114167902830610') : false
 
 var URPGSUPPORTER;
 
-   if (member.roles.cache.get('810838470200131605') == true) {
+   if (role1 == member.roles.cache.get('810838470200131605')) {
     db.set(`user_${message.author.id}.premium`, 1)
     var URPGSUPPORTER = "Supporter Tier: **Gold Supporter**<:badge_ultra_supporter:868592417966796920>";
    }else
-   if (member.roles.cache.get('810838438173343745') == true) {
+   if (role2 == member.roles.cache.get('810838438173343745')) {
     db.set(`user_${message.author.id}.premium`, 1)
     var URPGSUPPORTER = "Supporter Tier: **Silver Supporter**<:badge_silver_supporter:868674848296140830>";
    } else
-   if (member.roles.cache.get('678114167902830610') == true) {
+   if (role3 == member.roles.cache.get('678114167902830610')) {
     db.set(`user_${message.author.id}.premium`, 1)
     var URPGSUPPORTER = "Supporter Tier: **Bronze Supporter**<:premium_badge:827585712835788860>";
-   } else {
-       db.set(`user_${message.author.id}.premium`, 0)
-       var URPGSUPPORTER = "Supporter Tier: None";
    }
-
+   
 } 
-
-if(!member){
-    var URPGSUPPORTER = "Supporter Tier: None";
-}
-
 
 
 //SERVER WHITELIST  
