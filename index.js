@@ -239,11 +239,17 @@ bot.on('message', async (message) => {
 //PATREON ROLE CHECKER
 const supportGuild = bot.guilds.cache.get('779043676214263808')
 const member = supportGuild.members.cache.get(message.author.id)
-const hasPremium = member ? member.roles.cache.get('788451904606568461') : false
-if(hasPremium){
-    var premTxt = "This user has premium.";
+const hasGold = member ? member.roles.cache.get('788451904606568461') : false
+const hasSilver = member ? member.roles.cache.get('810838438173343745') : false
+const hasBronze = member ? member.roles.cache.get('260996384134529025') : false
+if(hasGold){
+    var premTxt = "Supporter Tier: **Gold**<:badge_ultra_supporter:868592417966796920>";
+} else if(hasSilver){
+    var premTxt = "Supporter Tier: **Silver**<:badge_silver_supporter:868674848296140830>";
+} else if(hasBronze){
+    var premTxt = "Supporter Tier: **Bronze**<:premium_badge:827585712835788860>";
 } else {
-    var premTxt = "This user does not have premium.";
+    var premTxt = "Supporter Tier: None";
 }
 
 
