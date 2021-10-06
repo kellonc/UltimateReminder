@@ -260,6 +260,9 @@ var URPGSUPPORTER;
    
 } else {
     var URPGSUPPORTER = "Supporter Tier: None";
+}
+
+if(URPGSUPPORTER = "Supporter Tier: None"){
     db.set(`user_${message.author.id}.premium`, 0)
 }
 
