@@ -232,7 +232,7 @@ bot.on('message', async (message) => {
        db.add(`user_${message.author.id}.allow14`, 1)
        
    }
-   /*
+   
 //PATREON ROLE CHECKER
 const supportGuild = bot.guilds.cache.get('779043676214263808')
 const member = supportGuild.members.cache.get(message.author.id)
@@ -270,7 +270,7 @@ if(role3 == member.roles.cache.get('678114167902830610')){
    } else {
        db.set(`user_${message.author.id}.premium`, 0)
    }
-*/
+
 
 
 //SERVER WHITELIST  
