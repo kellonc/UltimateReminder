@@ -18,7 +18,7 @@ const db = require('quick.db')
 const disbut = require('discord-buttons');
 const Topgg = require("@top-gg/sdk")
 const express = require("express")
-
+/*
 const { apiToken } = require('./botconfig.json');
 
 // Make sure to install this with 'npm install dblapi.js`
@@ -55,7 +55,7 @@ dbl.webhook.on('vote', async vote => {
 })
 
 // END OF IMPORTANT PART
-
+*/
 
 
 require('discord-buttons')(bot)
@@ -371,7 +371,7 @@ var adPick = addArray[Math.floor(Math.random() * addArray.length)];
         .addField("🎃Get Started:", "`rmStart`")
         .addField('🎃Commands',"`"+PREFIX+"reminder *on/off*`\n `"+PREFIX+"prefix *newPrefix*`\n `"+PREFIX+"premium *on/off*`\n `"+PREFIX+"status`\n`"+PREFIX+"dms *on/off*`\n`"+PREFIX+"suggest`\n`"+PREFIX+"enable/disable *reminder*`")
         .addField("🎃Forgot your prefix?", "```\ntype rmReset```")
-        .setFooter('Made by Kellon & Nyhus <3')
+        .setFooter('Copyright © 2021')
         if(PREMIUM == 1){
             embed.addField('🎃Premium Commands', "`"+PREFIX+"color`\n `"+PREFIX+"ready`\n `"+PREFIX+"reminders`")
         }
