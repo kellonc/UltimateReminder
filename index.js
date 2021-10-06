@@ -263,6 +263,10 @@ var URPGSUPPORTER;
 
 } 
 
+if(!member){
+    var URPGSUPPORTER = "Supporter Tier: None";
+}
+
 
 
 //SERVER WHITELIST  
