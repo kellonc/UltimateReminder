@@ -23,6 +23,7 @@ const { apiToken } = process.env.TOPAPI;
 
 // Make sure to install this with 'npm install dblapi.js`
 const DBL = require('dblapi.js');
+const { SSL_OP_NO_QUERY_MTU } = require('constants');
 // The webhookPort can be whatever you want but make sure you open that port in the firewall settings (for linux for example you can use `sudo ufw allow 8000`)
 // The webhookAuth is set by you, make sure you keep it secure and don\'t leak it
 const dbl = new DBL(apiToken, { webhookPort: 8000, webhookAuth: '639412551' });
@@ -236,27 +237,6 @@ bot.on('message', async (message) => {
 //PATREON ROLE CHECKER
 const supportGuild = bot.guilds.cache.get('779043676214263808')
 const member = supportGuild.members.cache.get(message.author.id)
-if(!member){
-    db.set(`user_${message.author.id}.premium`, 0)
-}
-if(member){
-var role1 = member.roles.cache.get('810838470200131605')
-var role2 = member.roles.cache.get('810838438173343745') 
-var role3 = member.roles.cache.get('678114167902830610')
-} else {
-    var URPGSUPPORTER = 'Supporter Tier: None';
-}
-if(role1 == member.roles.cache.get('810838470200131605')){
-    var URPGSUPPORTER = "Supporter Tier: Bronze Supporter<:premium_badge:827585712835788860>";
-} else var URPGSUPPORTER = "Supporter Tier: None";
-if(role2 == member.roles.cache.get('810838438173343745')){
-    var URPGSUPPORTER = "Supporter Tier: Silver Supporter<:badge_silver_supporter:868674848296140830>";
-} else var URPGSUPPORTER = "Supporter Tier: None"
-if(role3 == member.roles.cache.get('678114167902830610')){
-    var URPGSUPPORTER = "Supporter Tier: Gold Supporter<:badge_ultra_supporter:868592417966796920>";
-} else var URPGSUPPORTER = "Supporter Tier: None";
-
-
 
 
    if (role1 == member.roles.cache.get('810838470200131605')) {
