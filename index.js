@@ -258,9 +258,7 @@ var URPGSUPPORTER;
     var URPGSUPPORTER = "Supporter Tier: **Bronze Supporter**<:premium_badge:827585712835788860>";
    }
    
-} else {
-    var URPGSUPPORTER = "Supporter Tier: None";
-}
+} 
 
 if(URPGSUPPORTER = "Supporter Tier: None"){
     db.set(`user_${message.author.id}.premium`, 0)
