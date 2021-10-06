@@ -237,8 +237,7 @@ bot.on('message', async (message) => {
 //PATREON ROLE CHECKER
 const supportGuild = bot.guilds.cache.get('779043676214263808')
 const member = supportGuild.members.cache.get(message.author.id)
-const server = bot.guilds.cache.get('779043676214263808')
-if (server.members.cache.find(message.author.id)){
+if (supportGuild.members.cache.get(message.author.id) == true){
 const role1 = member ? member.roles.cache.get('810838470200131605'): false;
 const role2 = member ? member.roles.cache.get('810838438173343745'): false;
 const role3 = member ? member.roles.cache.get('678114167902830610'): false;
