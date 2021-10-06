@@ -239,9 +239,9 @@ const supportGuild = bot.guilds.cache.get('779043676214263808')
 const member = supportGuild.members.cache.get(message.author.id)
 
 
-const role1 = member.roles.cache.get('810838470200131605') || false
-const role2 = member.roles.cache.get('810838438173343745') || false
-const role3 = member.roles.cache.get('678114167902830610') || false
+const role1 = member ? member.roles.cache.get('810838470200131605') : false
+const role2 = member ? member.roles.cache.get('810838438173343745') : false
+const role3 = member ? member.roles.cache.get('678114167902830610') : false
 
 
    if (role1 == member.roles.cache.get('810838470200131605')) {
