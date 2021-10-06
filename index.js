@@ -4477,5 +4477,5 @@ bot.on('guildMemberAdd', member => {
 
 //End of Index.. Let's keep it that way :)
 
-bot.login(botconfig.token);//it should be config
+bot.login(TOKEN);//it should be config
 
