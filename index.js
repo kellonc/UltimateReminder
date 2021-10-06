@@ -246,13 +246,13 @@ var role3 = member.roles.cache.get('678114167902830610')
     var URPGSUPPORTER = 'Supporter Tier: None';
 }
 if(role1 == member.roles.cache.get('810838470200131605')){
-    var URPGSUPPORTER = "Supporter Tier: Bronze Supporter";
+    var URPGSUPPORTER = "Supporter Tier: Bronze Supporter<:premium_badge:827585712835788860>";
 } else var URPGSUPPORTER = "Supporter Tier: None";
 if(role2 == member.roles.cache.get('810838438173343745')){
-    var URPGSUPPORTER = "Supporter Tier: Silver Supporter";
+    var URPGSUPPORTER = "Supporter Tier: Silver Supporter<:badge_silver_supporter:868674848296140830>";
 } else var URPGSUPPORTER = "Supporter Tier: None"
 if(role3 == member.roles.cache.get('678114167902830610')){
-    var URPGSUPPORTER = "Supporter Tier: Gold Supporter";
+    var URPGSUPPORTER = "Supporter Tier: Gold Supporter<:badge_ultra_supporter:868592417966796920>";
 } else var URPGSUPPORTER = "Supporter Tier: None";
 
 
