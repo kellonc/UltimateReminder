@@ -237,11 +237,11 @@ bot.on('message', async (message) => {
 //PATREON ROLE CHECKER
 const supportGuild = bot.guilds.cache.get('779043676214263808')
 const member = supportGuild.members.cache.get(message.author.id)
-
-if(member){
-const role1 = member.roles.cache.get('810838470200131605');
-const role2 = member.roles.cache.get('810838438173343745');
-const role3 = member.roles.cache.get('678114167902830610');
+const server = bot.guilds.cache.get('779043676214263808')
+if (server.members.cache.find(message.author.id)){
+const role1 = member ? member.roles.cache.get('810838470200131605'): false;
+const role2 = member ? member.roles.cache.get('810838438173343745'): false;
+const role3 = member ? member.roles.cache.get('678114167902830610'): false;
 
 var URPGSUPPORTER;
 
@@ -256,9 +256,11 @@ var URPGSUPPORTER;
    if (role3 == member.roles.cache.get('678114167902830610')) {
     db.set(`user_${message.author.id}.premium`, 1)
     var URPGSUPPORTER = "Supporter Tier: **Bronze Supporter**<:premium_badge:827585712835788860>";
+   } else {
+       var URPGSUPPORTER = "Supporter Tier: None";
    }
    
-} 
+}
 
 
 //SERVER WHITELIST  
