@@ -19,7 +19,7 @@ const disbut = require('discord-buttons');
 const Topgg = require("@top-gg/sdk")
 const express = require("express")
 
-/*
+
 const { apiToken } = process.env.TOPAPI;
 
 // Make sure to install this with 'npm install dblapi.js`
@@ -57,7 +57,7 @@ dbl.webhook.on('vote', async vote => {
 })
 
 // END OF IMPORTANT PART
-*/
+
 
 
 require('discord-buttons')(bot)
@@ -4554,5 +4554,5 @@ bot.on('guildMemberAdd', member => {
 
 //End of Index.. Let's keep it that way :)
 
-bot.login('ODY2MDk2MDU3NzcwNTczODc0.YPNkzw.j9DbgG1_wtB4Xw2mHAw4Nvu_yWQ');//it should be config
+bot.login(process.env.TOKEN);//it should be config
 
