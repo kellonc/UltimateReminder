@@ -19,6 +19,7 @@ const disbut = require('discord-buttons');
 const Topgg = require("@top-gg/sdk")
 const express = require("express")
 
+/*
 const { apiToken } = process.env.TOPAPI;
 
 // Make sure to install this with 'npm install dblapi.js`
@@ -56,7 +57,7 @@ dbl.webhook.on('vote', async vote => {
 })
 
 // END OF IMPORTANT PART
-
+*/
 
 
 require('discord-buttons')(bot)
@@ -100,7 +101,7 @@ bot.on("ready", async () => {
 
     bot.user.setActivity(randomStatus, { type: 'WATCHING' });
 
-  
+    
     const mems = bot.guilds.cache.get("779043676214263808"); 
     const mems2 = bot.guilds.cache.get("866488860888399882"); 
 
@@ -120,6 +121,22 @@ mems.members.cache.forEach(member => {
     db.set(`user_${member.user.id}.travel`, 0)
     db.set(`user_${member.user.id}.explore`, 0)
     db.set(`user_${member.user.id}.daily`, 0)
+    }
+}); 
+
+mems.members.cache.forEach(member => {
+    if(!db.get(`user_${member.user.id}.level`) == null){
+        db.add(`user_${message.author.id}.level`, 1)
+        db.add(`user_${message.author.id}.currentXP`, 1)
+        db.add(`user_${message.author.id}.neededXP`, 100)
+    }
+}); 
+
+mems2.members.cache.forEach(member => {
+    if(!db.get(`user_${member.user.id}.level`) == null){
+        db.add(`user_${message.author.id}.level`, 1)
+        db.add(`user_${message.author.id}.currentXP`, 1)
+        db.add(`user_${message.author.id}.neededXP`, 100)
     }
 }); 
 
@@ -195,19 +212,51 @@ bot.on("guildCreate", guild => {
 
 
 
+bot.on('message', async (message) => {
+    if (message.author.bot) return;
+     //LEVELING SYSTEM
+
+     if(message){
+if(db.get(`user_${message.author.id}.level`) == null){
+    db.add(`user_${message.author.id}.level`, 1)
+    db.add(`user_${message.author.id}.currentXP`, 1)
+    db.add(`user_${message.author.id}.neededXP`, 100)
+}
+
+db.add(`user_${message.author.id}.currentXP`, 5)
+
+if(db.get(`user_${message.author.id}.currentXP`) == db.get(`user_${message.author.id}.neededXP`)){
+    db.add(`user_${message.author.id}.level`, 1)
+    db.set(`user_${message.author.id}.currentXP`, 0)
+    db.add(`user_${message.author.id}.neededXP`, 75)
+}
+
+
+     }
+})
+
+
+
+
+
+
+
+
+
 
 bot.on('message', async (message) => {
 
     if (message.author.bot) return;
+
     
    if(db.get(`user_${message.author.id}.premium`) === null){
-       db.set(`user_${message.author.id}`, { prefixxx: 'rm' })
-       db.set(`user_${message.author.id}.reminder`, "disabled")
+       db.add(`user_${message.author.id}.prefixxx`, "rm")
+       db.add(`user_${message.author.id}.reminder`, "disabled")
        db.add(`user_${message.author.id}.premium`, 0)
        db.add(`user_${message.author.id}.credits`, 0)
        db.add(`user_${message.author.id}.votes`, 0)
        db.add(`user_${message.author.id}.supporter`, 0)
-       db.set(`user_${message.author.id}.color`, "#62f046")
+       db.add(`user_${message.author.id}.color`, "#62f046")
        db.add(`user_${message.author.id}.dms`, 0)
        db.add(`user_${message.author.id}.fish`, 0)
        db.add(`user_${message.author.id}.harvest`, 0)
@@ -251,6 +300,9 @@ bot.on('message', async (message) => {
        db.add(`user_${message.author.id}.allow12`, 1)
        db.add(`user_${message.author.id}.allow13`, 1)
        db.add(`user_${message.author.id}.allow14`, 1)
+       db.add(`user_${message.author.id}.level`, 1)
+       db.add(`user_${message.author.id}.currentXP`, 1)
+       db.add(`user_${message.author.id}.neededXP`, 100)
        
    }
    
@@ -275,6 +327,22 @@ if(hasGold){
     var premTxt = "Supporter Tier: None";
     db.set(`user_${message.author.id}.premium`, 0)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -803,7 +871,7 @@ if(message.content.toLowerCase() == `${PREFIX}reminders`){
         message.react('<:Clockrpg:797571296095240282>');
       db.set(`user_${message.author.id}.fish`, 1)
       db.add(`user_${message.author.id}.credits`, 1)
-
+     
         setTimeout( async function() {
           
         
@@ -4486,5 +4554,5 @@ bot.on('guildMemberAdd', member => {
 
 //End of Index.. Let's keep it that way :)
 
-bot.login(process.env.TOKEN);//it should be config
+bot.login('ODY2MDk2MDU3NzcwNTczODc0.YPNkzw.j9DbgG1_wtB4Xw2mHAw4Nvu_yWQ');//it should be config
 
