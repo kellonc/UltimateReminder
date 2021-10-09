@@ -1,6 +1,5 @@
 //2021 only comment from kellon XD rip 2020 go brrr
 const talkedRecently = new Set();
-const userprefix = require('./userprefix.json');
 const BUMPSHIT = require('./bump.json');
 const Discord = require("discord.js");
 const Util = require("discord.js");
@@ -19,7 +18,7 @@ const disbut = require('discord-buttons');
 const Topgg = require("@top-gg/sdk")
 const express = require("express")
 
-
+/*
 const { apiToken } = process.env.TOPAPI;
 
 // Make sure to install this with 'npm install dblapi.js`
@@ -57,7 +56,7 @@ dbl.webhook.on('vote', async vote => {
 })
 
 // END OF IMPORTANT PART
-
+*/
 
 
 require('discord-buttons')(bot)
@@ -225,7 +224,8 @@ if(db.get(`user_${message.author.id}.level`) == null){
 
 db.add(`user_${message.author.id}.currentXP`, 5)
 
-if(db.get(`user_${message.author.id}.currentXP`) == db.get(`user_${message.author.id}.neededXP`)){
+if(db.get(`user_${message.author.id}.currentXP`) >= db.get(`user_${message.author.id}.neededXP`)){
+    message.channel.send(`${message.author}, has Leveled Up! They're now Level ${db.get(`user_${message.author.id}.level`) + 1}`)
     db.add(`user_${message.author.id}.level`, 1)
     db.set(`user_${message.author.id}.currentXP`, 0)
     db.add(`user_${message.author.id}.neededXP`, 75)
@@ -248,6 +248,9 @@ bot.on('message', async (message) => {
 
     if (message.author.bot) return;
 
+    if(db.get(`user_${message.author.id}.prefixxx`) === null){
+        db.set(`user_${message.author.id}.prefixxx`, "rm")
+    }
     
    if(db.get(`user_${message.author.id}.premium`) === null){
        db.add(`user_${message.author.id}.prefixxx`, "rm")
@@ -355,7 +358,8 @@ let PREMIUMARRAY = [
     "779043676214263808",//urpg server
     "788887006159437834",//dino rescue hangout
     "732606928630448179",
-    "619429669405720586"
+    "619429669405720586",
+    "874769255990693919"
 ]
 
 
@@ -447,12 +451,11 @@ var adPick = addArray[Math.floor(Math.random() * addArray.length)];
         .setDescription(`**HOW TO USE:**\n>>> make sure UltimateRPG and Ultimate Reminder have the same prefix!!!\n**[Join Support Server!](https://discord.gg/PTeUgRbFGR)**\n**[Checkout Our Patreon!](https://www.patreon.com/UltimateReminder)**\n${premTxt}`)
         .addField("🎃Get Started:", ">>> `rmStart`")
         .addField('🎃Commands',">>> `"+PREFIX+"reminder *on/off*`\n `"+PREFIX+"prefix *newPrefix*`\n `"+PREFIX+"premium *on/off*`\n `"+PREFIX+"status`\n`"+PREFIX+"dms *on/off*`\n`"+PREFIX+"suggest`\n`"+PREFIX+"enable/disable *reminder*`")
+        .addField('🎃Leveling',">>> `rmrank`\n`rmleaderboard`")
         .addField("🎃Forgot your prefix?", "```\ntype rmReset```")
         .setFooter('Copyright © 2021')
-        if(PREMIUM == 1){
-            embed.addField('<:Badge_premium_supporter:894392825943302164>Premium Commands', ">>> `"+PREFIX+"color`\n `"+PREFIX+"ready`\n `"+PREFIX+"reminders`")
-        }
-        embed.addField("🎃Misc", ">>> These are other commands unrelated to UltimateRPG! they use the prefix `rm`\n\n `ping`, `user`, `bot`, `vote`, `shop`, `invite`", true)
+        .addField('<:Badge_premium_supporter:894392825943302164>Premium Commands', ">>> `"+PREFIX+"color`\n `"+PREFIX+"ready`\n `"+PREFIX+"reminders`")
+        .addField("🎃Misc", ">>> These are other commands unrelated to UltimateRPG! they use the prefix `rm`\n\n `ping`, `user`, `bot`, `vote`, `shop`, `invite`", true)
        
 
         return message.channel.send(embed);
@@ -4554,5 +4557,5 @@ bot.on('guildMemberAdd', member => {
 
 //End of Index.. Let's keep it that way :)
 
-bot.login(process.env.TOKEN);//it should be config
+bot.login('ODY2MDk2MDU3NzcwNTczODc0.YPNkzw.1mX-lZ_w60zOH17UdES7zW11xIw');//it should be config
 

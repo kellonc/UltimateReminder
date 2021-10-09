@@ -12,22 +12,24 @@ if(db.get(`user_${message.author.id}.level`) === null){
 const current = db.get(`user_${message.author.id}.currentXP`)
 const needed = db.get(`user_${message.author.id}.neededXP`)
 const level = db.get(`user_${message.author.id}.level`)
+const color = db.get(`user_${message.author.id}.color`)
 
     const canvacord = require("canvacord");
 const img = message.author.displayAvatarURL({ format: 'png'});
 
-const rank = new canvacord.Rank()
+const RankCard = new canvacord.Rank()
     .setAvatar(img)
     .setCurrentXP(current)
     .setRequiredXP(needed)
     .setLevel(level)
-    .setLevelColor('#ebbd34')
+    .setLevelColor(color)
+    .setRank(1, "test", false)
     .setStatus(message.author.presence.status)
-    .setProgressBar("#ebbd34", "COLOR")
+    .setProgressBar(color, "COLOR")
     .setUsername(message.author.username)
     .setDiscriminator(message.author.discriminator);
 
-rank.build()
+    RankCard.build()
     .then(data => {
         const attachment = new Discord.MessageAttachment(data, "RankCard.png");
         message.channel.send(attachment);
